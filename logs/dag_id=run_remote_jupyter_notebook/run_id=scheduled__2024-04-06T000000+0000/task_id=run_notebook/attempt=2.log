@@ -1,0 +1,33 @@
+[2024-07-16T07:49:01.836+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2024-04-06T00:00:00+00:00 [queued]>
+[2024-07-16T07:49:01.855+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2024-04-06T00:00:00+00:00 [queued]>
+[2024-07-16T07:49:01.856+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 2
+[2024-07-16T07:49:01.889+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_notebook> on 2024-04-06 00:00:00+00:00
+[2024-07-16T07:49:01.906+0000] {standard_task_runner.py:57} INFO - Started process 607 to run task
+[2024-07-16T07:49:01.912+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'run_remote_jupyter_notebook', 'run_notebook', 'scheduled__2024-04-06T00:00:00+00:00', '--job-id', '1378', '--raw', '--subdir', 'DAGS_FOLDER/run_notebook.py', '--cfg-path', '/tmp/tmphqjlyjad']
+[2024-07-16T07:49:01.916+0000] {standard_task_runner.py:85} INFO - Job 1378: Subtask run_notebook
+[2024-07-16T07:49:01.999+0000] {task_command.py:410} INFO - Running <TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2024-04-06T00:00:00+00:00 [running]> on host dcbd1801a890
+[2024-07-16T07:49:02.294+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='run_remote_jupyter_notebook' AIRFLOW_CTX_TASK_ID='run_notebook' AIRFLOW_CTX_EXECUTION_DATE='2024-04-06T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-06T00:00:00+00:00'
+[2024-07-16T07:49:02.295+0000] {run_notebook.py:14} INFO - Attempting to connect to http://host.docker.internal:8888/api/contents/Notebooks/notebook.ipynb?token=e8a8150423dfd35bee318800bfcf7c9191ca7485b5cb9fde
+[2024-07-16T07:49:02.310+0000] {execute.py:83} INFO - Input Notebook:  /tmp/input_notebook.ipynb
+[2024-07-16T07:49:02.310+0000] {execute.py:84} INFO - Output Notebook: /opt/***/outputs/output.ipynb
+[2024-07-16T07:49:02.311+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/run_notebook.py", line 34, in execute_remote_notebook
+    parameters=parameters
+  File "/home/airflow/.local/lib/python3.7/site-packages/papermill/execute.py", line 89, in execute_notebook
+    nb = load_notebook_node(input_path)
+  File "/home/airflow/.local/lib/python3.7/site-packages/papermill/iorw.py", line 512, in load_notebook_node
+    nb = nbformat.reads(papermill_io.read(notebook_path), as_version=4)
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbformat/__init__.py", line 91, in reads
+    nb = convert(nb, as_version)
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbformat/converter.py", line 62, in convert
+    raise ValidationError(msg) from None
+jsonschema.exceptions.ValidationError: Notebook could not be converted from version 1 to version 2 because it's missing a key: cells
+[2024-07-16T07:49:02.320+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=run_remote_jupyter_notebook, task_id=run_notebook, execution_date=20240406T000000, start_date=20240716T074901, end_date=20240716T074902
+[2024-07-16T07:49:02.328+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1378 for task run_notebook (Notebook could not be converted from version 1 to version 2 because it's missing a key: cells; 607)
+[2024-07-16T07:49:02.367+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2024-07-16T07:49:02.400+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

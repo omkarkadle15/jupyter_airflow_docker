@@ -1,0 +1,22 @@
+[2024-07-15T09:33:21.028+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_jupyter_notebook.run_notebook scheduled__2023-01-14T00:00:00+00:00 [queued]>
+[2024-07-15T09:33:21.053+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_jupyter_notebook.run_notebook scheduled__2023-01-14T00:00:00+00:00 [queued]>
+[2024-07-15T09:33:21.059+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 2
+[2024-07-15T09:33:21.090+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_notebook> on 2023-01-14 00:00:00+00:00
+[2024-07-15T09:33:21.099+0000] {standard_task_runner.py:57} INFO - Started process 313 to run task
+[2024-07-15T09:33:21.123+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'run_jupyter_notebook', 'run_notebook', 'scheduled__2023-01-14T00:00:00+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/run_notebook.py', '--cfg-path', '/tmp/tmpghex4k8s']
+[2024-07-15T09:33:21.144+0000] {standard_task_runner.py:85} INFO - Job 30: Subtask run_notebook
+[2024-07-15T09:33:21.261+0000] {task_command.py:410} INFO - Running <TaskInstance: run_jupyter_notebook.run_notebook scheduled__2023-01-14T00:00:00+00:00 [running]> on host 0aeef3766ac4
+[2024-07-15T09:33:21.416+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='run_jupyter_notebook' AIRFLOW_CTX_TASK_ID='run_notebook' AIRFLOW_CTX_EXECUTION_DATE='2023-01-14T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-14T00:00:00+00:00'
+[2024-07-15T09:33:21.421+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/run_notebook.py", line 11, in execute_notebook
+    with open(notebook_path) as f:
+FileNotFoundError: [Errno 2] No such file or directory: './opt/airflow/notebooks/notebook.ipynb'
+[2024-07-15T09:33:21.440+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=run_jupyter_notebook, task_id=run_notebook, execution_date=20230114T000000, start_date=20240715T093321, end_date=20240715T093321
+[2024-07-15T09:33:21.467+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 30 for task run_notebook ([Errno 2] No such file or directory: './opt/airflow/notebooks/notebook.ipynb'; 313)
+[2024-07-15T09:33:21.530+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2024-07-15T09:33:21.550+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

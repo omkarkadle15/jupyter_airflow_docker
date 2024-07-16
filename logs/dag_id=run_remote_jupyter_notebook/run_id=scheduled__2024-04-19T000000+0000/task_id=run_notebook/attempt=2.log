@@ -1,0 +1,30 @@
+[2024-07-16T07:54:12.268+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2024-04-19T00:00:00+00:00 [queued]>
+[2024-07-16T07:54:12.281+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2024-04-19T00:00:00+00:00 [queued]>
+[2024-07-16T07:54:12.281+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 2
+[2024-07-16T07:54:12.298+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_notebook> on 2024-04-19 00:00:00+00:00
+[2024-07-16T07:54:12.306+0000] {standard_task_runner.py:57} INFO - Started process 1845 to run task
+[2024-07-16T07:54:12.310+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'run_remote_jupyter_notebook', 'run_notebook', 'scheduled__2024-04-19T00:00:00+00:00', '--job-id', '1405', '--raw', '--subdir', 'DAGS_FOLDER/run_notebook.py', '--cfg-path', '/tmp/tmpu3ljga99']
+[2024-07-16T07:54:12.312+0000] {standard_task_runner.py:85} INFO - Job 1405: Subtask run_notebook
+[2024-07-16T07:54:12.411+0000] {task_command.py:410} INFO - Running <TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2024-04-19T00:00:00+00:00 [running]> on host dcbd1801a890
+[2024-07-16T07:54:12.519+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='run_remote_jupyter_notebook' AIRFLOW_CTX_TASK_ID='run_notebook' AIRFLOW_CTX_EXECUTION_DATE='2024-04-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-19T00:00:00+00:00'
+[2024-07-16T07:54:12.521+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/run_notebook.py", line 16, in execute_remote_notebook
+    update_notebook_format('/tmp/input_notebook.ipynb')
+  File "/opt/airflow/dags/run_notebook.py", line 52, in update_notebook_format
+    nb = nbformat.read(f, as_version=4)
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbformat/__init__.py", line 171, in read
+    return reads(buf, as_version, capture_validation_error, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbformat/__init__.py", line 91, in reads
+    nb = convert(nb, as_version)
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbformat/converter.py", line 62, in convert
+    raise ValidationError(msg) from None
+jsonschema.exceptions.ValidationError: Notebook could not be converted from version 1 to version 2 because it's missing a key: cells
+[2024-07-16T07:54:12.532+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=run_remote_jupyter_notebook, task_id=run_notebook, execution_date=20240419T000000, start_date=20240716T075412, end_date=20240716T075412
+[2024-07-16T07:54:12.543+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1405 for task run_notebook (Notebook could not be converted from version 1 to version 2 because it's missing a key: cells; 1845)
+[2024-07-16T07:54:12.562+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2024-07-16T07:54:12.578+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

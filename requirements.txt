@@ -1,0 +1,6 @@
+jupyter
+nbconvert
+nbformat
+ipykernel
+papermill
+requests
