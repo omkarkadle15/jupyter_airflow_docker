@@ -1,0 +1,23 @@
+[2024-07-17T10:45:35.496+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook manual__2024-07-17T10:15:55.752505+00:00 [queued]>
+[2024-07-17T10:45:35.503+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook manual__2024-07-17T10:15:55.752505+00:00 [queued]>
+[2024-07-17T10:45:35.504+0000] {taskinstance.py:1308} INFO - Starting attempt 2 of 2
+[2024-07-17T10:45:35.515+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_notebook> on 2024-07-17 10:15:55.752505+00:00
+[2024-07-17T10:45:35.519+0000] {standard_task_runner.py:57} INFO - Started process 169 to run task
+[2024-07-17T10:45:35.522+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'run_remote_jupyter_notebook', 'run_notebook', 'manual__2024-07-17T10:15:55.752505+00:00', '--job-id', '1545', '--raw', '--subdir', 'DAGS_FOLDER/run_notebook.py', '--cfg-path', '/tmp/tmpgiy41z2s']
+[2024-07-17T10:45:35.523+0000] {standard_task_runner.py:85} INFO - Job 1545: Subtask run_notebook
+[2024-07-17T10:45:35.559+0000] {task_command.py:410} INFO - Running <TaskInstance: run_remote_jupyter_notebook.run_notebook manual__2024-07-17T10:15:55.752505+00:00 [running]> on host 8d605751006d
+[2024-07-17T10:45:35.636+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='run_remote_jupyter_notebook' AIRFLOW_CTX_TASK_ID='run_notebook' AIRFLOW_CTX_EXECUTION_DATE='2024-07-17T10:15:55.752505+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-17T10:15:55.752505+00:00'
+[2024-07-17T10:45:35.659+0000] {logging_mixin.py:149} INFO - Error retrieving Jupyter token: 403 Client Error: Forbidden for url: http://host.docker.internal:8888/login
+[2024-07-17T10:45:35.660+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/run_notebook.py", line 21, in execute_remote_notebook
+    raise Exception("Failed to retrieve Jupyter token")
+Exception: Failed to retrieve Jupyter token
+[2024-07-17T10:45:35.669+0000] {taskinstance.py:1350} INFO - Marking task as FAILED. dag_id=run_remote_jupyter_notebook, task_id=run_notebook, execution_date=20240717T101555, start_date=20240717T104535, end_date=20240717T104535
+[2024-07-17T10:45:35.680+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1545 for task run_notebook (Failed to retrieve Jupyter token; 169)
+[2024-07-17T10:45:35.694+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2024-07-17T10:45:35.707+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
