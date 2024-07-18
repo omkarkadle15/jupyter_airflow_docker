@@ -21,6 +21,7 @@ This project sets up an Apache Airflow environment using Docker, configured to e
 1. Clone this repository:
 
 git clone https://github.com/omkarkadle15/jupyter_airflow_docker
+
 cd <project-directory>
 
 2. Start your Jupyter Notebook server:
@@ -34,7 +35,9 @@ Note the token provided in the Jupyter server output.
 Execute this command on powershell: jupyter notebook --generate-config
 
 You will get the path to a file, namely "jupyter_notebook_config.py". Open that file and add these two lines anywhere you wish:
+
 c.NotebookApp.allow_origin = '*' #allow all origins
+
 c.NotebookApp.ip = '0.0.0.0' # listen on all IPs
 
 4. Update the `dags/run_notebook.py` file with your Jupyter server details:
@@ -43,6 +46,7 @@ c.NotebookApp.ip = '0.0.0.0' # listen on all IPs
 - Replace the `token` value with the token from step 2
 
 5. Build the Docker images:
+
 docker-compose build
 
 6. Start the Airflow services:
