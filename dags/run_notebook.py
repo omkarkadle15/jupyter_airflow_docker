@@ -6,6 +6,8 @@ import requests
 import json
 import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
+from airflow.exceptions import AirflowException
+import logging
 
 def execute_remote_notebook(**kwargs):
     base_url = "http://host.docker.internal:8888"
@@ -26,6 +28,17 @@ def execute_remote_notebook(**kwargs):
         ep = ExecutePreprocessor(timeout=600, kernel_name='python3')
         ep.preprocess(nb, {'metadata': {'path': '/tmp/'}})
 
+        # Log the outputs
+        for cell in nb.cells:
+            if cell.cell_type == 'code':
+                logging.info(f"Code:\n{cell.source}")
+                if 'outputs' in cell:
+                    for output in cell.outputs:
+                        if output.output_type == 'stream':
+                            logging.info(f"Output:\n{output.text}")
+                        elif output.output_type == 'execute_result':
+                            logging.info(f"Output:\n{output.data.get('text/plain', '')}")
+
         # Prepare the updated notebook content
         updated_content = {
             "type": "notebook",
@@ -41,13 +54,13 @@ def execute_remote_notebook(**kwargs):
         )
         response.raise_for_status()
 
-        print(f"Notebook executed and updated successfully on the server.")
+        logging.info("Notebook executed and updated successfully on the server.")
 
     except requests.exceptions.RequestException as e:
-        print(f"Error connecting to notebook: {str(e)}")
+        logging.error(f"Error connecting to notebook: {str(e)}")
         raise AirflowException(f"Failed to connect to Jupyter notebook: {str(e)}")
     except Exception as e:
-        print(f"Error processing notebook: {str(e)}")
+        logging.error(f"Error processing notebook: {str(e)}")
         raise AirflowException(f"Failed to process Jupyter notebook: {str(e)}")
 
 default_args = {
@@ -65,8 +78,8 @@ dag = DAG(
     default_args=default_args,
     description='A DAG to run a remote Jupyter notebook',
     schedule_interval=timedelta(days=1),
-    max_active_runs=1,
-    max_active_tasks=1    
+    max_active_tasks=1,
+    max_active_runs=1
 )
 
 run_notebook = PythonOperator(
