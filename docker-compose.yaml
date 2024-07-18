@@ -12,8 +12,18 @@ services:
       interval: 5s
       retries: 5
 
+  airflow-init:
+    build: .
+    entrypoint: /bin/bash
+    command: -c "airflow db init && airflow users create --username admin --password admin --firstname Anonymous --lastname Admin --role Admin --email admin@example.com"
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+    depends_on:
+      - postgres
+
   webserver:
-    image: custom-airflow
+    build: .  # Use the custom Dockerfile
     command: webserver
     ports:
       - "8080:8080"
@@ -27,10 +37,10 @@ services:
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
       - AIRFLOW__WEBSERVER__BASE_URL=http://localhost:8080
     depends_on:
-      - postgres
+      - airflow-init
 
   scheduler:
-    image: custom-airflow
+    build: .  # Use the custom Dockerfile
     command: scheduler
     volumes:
       - ./dags:/opt/airflow/dags
@@ -40,7 +50,7 @@ services:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
     depends_on:
-      - postgres
+      - airflow-init
 
 volumes:
   postgres-db-volume:

@@ -1300,3 +1300,24 @@ requests.exceptions.ConnectionError: HTTPConnectionPool(host='jupyter-server', p
 [2024-07-17T10:54:47.459+0000] {processor.py:157} INFO - Started process (PID=335) to work on /opt/airflow/dags/run_notebook.py
 [2024-07-17T10:54:47.460+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/run_notebook.py for tasks to queue
 [2024-07-17T10:54:47.461+0000] {logging_mixin.py:149} INFO - [2024-07-17T10:54:47.461+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/run_notebook.py
+[2024-07-17T12:27:30.881+0000] {processor.py:157} INFO - Started process (PID=162) to work on /opt/airflow/dags/run_notebook.py
+[2024-07-17T12:27:30.884+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/run_notebook.py for tasks to queue
+[2024-07-17T12:27:30.887+0000] {logging_mixin.py:149} INFO - [2024-07-17T12:27:30.886+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/run_notebook.py
+[2024-07-17T12:27:33.470+0000] {processor.py:836} INFO - DAG(s) dict_keys(['run_remote_jupyter_notebook']) retrieved from /opt/airflow/dags/run_notebook.py
+[2024-07-17T12:27:33.512+0000] {logging_mixin.py:149} INFO - [2024-07-17T12:27:33.512+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2024-07-17T12:27:33.539+0000] {logging_mixin.py:149} INFO - [2024-07-17T12:27:33.539+0000] {dag.py:3490} INFO - Setting next_dagrun for run_remote_jupyter_notebook to 2024-07-17T00:00:00+00:00, run_after=2024-07-18T00:00:00+00:00
+[2024-07-17T12:27:33.570+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/run_notebook.py took 2.708 seconds
+[2024-07-17T12:28:03.910+0000] {processor.py:157} INFO - Started process (PID=242) to work on /opt/airflow/dags/run_notebook.py
+[2024-07-17T12:28:03.912+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/run_notebook.py for tasks to queue
+[2024-07-17T12:28:03.913+0000] {logging_mixin.py:149} INFO - [2024-07-17T12:28:03.913+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/run_notebook.py
+[2024-07-17T12:28:05.007+0000] {processor.py:836} INFO - DAG(s) dict_keys(['run_remote_jupyter_notebook']) retrieved from /opt/airflow/dags/run_notebook.py
+[2024-07-17T12:28:05.042+0000] {logging_mixin.py:149} INFO - [2024-07-17T12:28:05.042+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2024-07-17T12:28:05.085+0000] {logging_mixin.py:149} INFO - [2024-07-17T12:28:05.085+0000] {dag.py:3490} INFO - Setting next_dagrun for run_remote_jupyter_notebook to 2024-07-17T00:00:00+00:00, run_after=2024-07-18T00:00:00+00:00
+[2024-07-17T12:28:05.113+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/run_notebook.py took 1.209 seconds
+[2024-07-17T12:28:35.214+0000] {processor.py:157} INFO - Started process (PID=321) to work on /opt/airflow/dags/run_notebook.py
+[2024-07-17T12:28:35.216+0000] {processor.py:826} INFO - Processing file /opt/airflow/dags/run_notebook.py for tasks to queue
+[2024-07-17T12:28:35.218+0000] {logging_mixin.py:149} INFO - [2024-07-17T12:28:35.218+0000] {dagbag.py:541} INFO - Filling up the DagBag from /opt/airflow/dags/run_notebook.py
+[2024-07-17T12:28:36.119+0000] {processor.py:836} INFO - DAG(s) dict_keys(['run_remote_jupyter_notebook']) retrieved from /opt/airflow/dags/run_notebook.py
+[2024-07-17T12:28:36.145+0000] {logging_mixin.py:149} INFO - [2024-07-17T12:28:36.144+0000] {dag.py:2726} INFO - Sync 1 DAGs
+[2024-07-17T12:28:36.170+0000] {logging_mixin.py:149} INFO - [2024-07-17T12:28:36.170+0000] {dag.py:3490} INFO - Setting next_dagrun for run_remote_jupyter_notebook to 2024-07-17T00:00:00+00:00, run_after=2024-07-18T00:00:00+00:00
+[2024-07-17T12:28:36.195+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/run_notebook.py took 0.989 seconds

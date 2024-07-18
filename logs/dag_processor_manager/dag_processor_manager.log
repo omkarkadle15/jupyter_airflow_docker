@@ -4832,3 +4832,377 @@ File Path                          PID    Runtime      # DAGs    # Errors  Last 
 [2024-07-17T10:54:47.841+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
 [2024-07-17T10:54:47.889+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
 [2024-07-17T10:54:47.938+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2024-07-17T12:27:30.676+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2024-07-17T12:27:30.677+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2024-07-17T12:27:30.678+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2024-07-17T12:27:30.678+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2024-07-17T12:27:30.722+0000] {manager.py:761} INFO - There are 1 files in /opt/airflow/dags
+[2024-07-17T12:27:30.935+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                            PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/run_notebook.py    162  0.09s             0           0
+================================================================================
+[2024-07-17T12:28:01.132+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  2.76s           2024-07-17T12:27:33
+================================================================================
+[2024-07-17T12:28:31.361+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.27s           2024-07-17T12:28:05
+================================================================================
+[2024-07-17T12:28:54.197+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2024-07-18T06:09:51.986+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2024-07-18T06:09:51.987+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2024-07-18T06:09:51.988+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2024-07-18T06:09:51.989+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2024-07-18T06:09:52.017+0000] {manager.py:761} INFO - There are 1 files in /opt/airflow/dags
+[2024-07-18T06:09:52.088+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                            PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/run_notebook.py    159  0.03s             0           0
+================================================================================
+[2024-07-18T06:10:22.314+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  2.50s           2024-07-18T06:09:54
+================================================================================
+[2024-07-18T06:10:53.088+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.16s           2024-07-18T06:10:25
+================================================================================
+[2024-07-18T06:11:23.510+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.15s           2024-07-18T06:10:57
+================================================================================
+[2024-07-18T06:11:53.861+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.06s           2024-07-18T06:11:28
+================================================================================
+[2024-07-18T06:12:24.194+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.09s           2024-07-18T06:12:00
+================================================================================
+[2024-07-18T06:12:54.519+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.25s           2024-07-18T06:12:31
+================================================================================
+[2024-07-18T06:13:24.856+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.10s           2024-07-18T06:13:02
+================================================================================
+[2024-07-18T06:13:55.237+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.24s           2024-07-18T06:13:34
+================================================================================
+[2024-07-18T06:14:13.347+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2024-07-18T06:14:44.490+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2024-07-18T06:14:44.491+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2024-07-18T06:14:44.492+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2024-07-18T06:14:44.492+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2024-07-18T06:14:44.517+0000] {manager.py:761} INFO - There are 1 files in /opt/airflow/dags
+[2024-07-18T06:14:44.594+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                            PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/run_notebook.py    184  0.03s             0           0
+================================================================================
+[2024-07-18T06:15:14.795+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.99s           2024-07-18T06:14:45
+================================================================================
+[2024-07-18T06:15:45.037+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.12s           2024-07-18T06:15:16
+================================================================================
+[2024-07-18T06:16:15.255+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.63s           2024-07-18T06:15:47
+================================================================================
+[2024-07-18T06:16:45.485+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.63s           2024-07-18T06:16:18
+================================================================================
+[2024-07-18T06:17:07.177+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2024-07-18T06:18:47.308+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2024-07-18T06:18:47.308+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2024-07-18T06:18:47.309+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2024-07-18T06:18:47.309+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2024-07-18T06:18:47.319+0000] {manager.py:761} INFO - There are 1 files in /opt/airflow/dags
+[2024-07-18T06:18:47.405+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                            PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/run_notebook.py    160  0.03s             0           0
+================================================================================
+[2024-07-18T06:19:17.557+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.40s           2024-07-18T06:18:48
+================================================================================
+[2024-07-18T06:19:47.713+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.69s           2024-07-18T06:19:19
+================================================================================
+[2024-07-18T06:20:17.917+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.66s           2024-07-18T06:19:50
+================================================================================
+[2024-07-18T06:20:48.153+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.67s           2024-07-18T06:20:21
+================================================================================
+[2024-07-18T06:21:18.349+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.65s           2024-07-18T06:20:52
+================================================================================
+[2024-07-18T06:21:48.872+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.65s           2024-07-18T06:21:23
+================================================================================
+[2024-07-18T06:22:19.060+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.67s           2024-07-18T06:21:53
+================================================================================
+[2024-07-18T06:22:49.243+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.66s           2024-07-18T06:22:24
+================================================================================
+[2024-07-18T06:23:19.399+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.63s           2024-07-18T06:22:55
+================================================================================
+[2024-07-18T06:23:47.531+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2024-07-18T06:23:47.542+0000] {manager.py:761} INFO - There are 1 files in /opt/airflow/dags
+[2024-07-18T06:23:49.561+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.67s           2024-07-18T06:23:26
+================================================================================
+[2024-07-18T06:24:20.023+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.64s           2024-07-18T06:23:57
+================================================================================
+[2024-07-18T06:24:50.200+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.68s           2024-07-18T06:24:28
+================================================================================
+[2024-07-18T06:25:20.410+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.63s           2024-07-18T06:24:58
+================================================================================
+[2024-07-18T06:25:35.663+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2024-07-18T06:26:39.157+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2024-07-18T06:26:39.157+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2024-07-18T06:26:39.157+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2024-07-18T06:26:39.158+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2024-07-18T06:26:39.169+0000] {manager.py:761} INFO - There are 1 files in /opt/airflow/dags
+[2024-07-18T06:26:39.213+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                            PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/run_notebook.py    186  0.02s             0           0
+================================================================================
+[2024-07-18T06:26:55.828+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15
+[2024-07-18T06:29:01.783+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2024-07-18T06:29:01.784+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2024-07-18T06:29:01.784+0000] {manager.py:490} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2024-07-18T06:29:01.785+0000] {manager.py:758} INFO - Searching for files in /opt/airflow/dags
+[2024-07-18T06:29:01.794+0000] {manager.py:761} INFO - There are 1 files in /opt/airflow/dags
+[2024-07-18T06:29:01.863+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                            PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/run_notebook.py    155  0.03s             0           0
+================================================================================
+[2024-07-18T06:29:32.007+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.44s           2024-07-18T06:29:03
+================================================================================
+[2024-07-18T06:30:02.217+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.69s           2024-07-18T06:29:34
+================================================================================
+[2024-07-18T06:30:32.598+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.52s           2024-07-18T06:30:05
+================================================================================
+[2024-07-18T06:31:02.855+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  1.99s           2024-07-18T06:30:38
+================================================================================
+[2024-07-18T06:31:33.022+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.80s           2024-07-18T06:31:09
+================================================================================
+[2024-07-18T06:32:03.301+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.70s           2024-07-18T06:31:39
+================================================================================
+[2024-07-18T06:32:33.464+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.70s           2024-07-18T06:32:10
+================================================================================
+[2024-07-18T06:33:03.671+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.74s           2024-07-18T06:32:41
+================================================================================
+[2024-07-18T06:33:33.861+0000] {manager.py:889} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/run_notebook.py                           1           0  0.65s           2024-07-18T06:33:12
+================================================================================
+[2024-07-18T06:33:38.413+0000] {manager.py:470} INFO - Exiting gracefully upon receiving signal 15

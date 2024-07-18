@@ -4,3 +4,4 @@ nbformat
 ipykernel
 papermill
 requests
+psycopg2-binary
