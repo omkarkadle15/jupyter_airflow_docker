@@ -79,3 +79,50 @@ requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8
 [2024-07-15T12:07:07.349+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 1194 for task run_notebook (HTTPConnectionPool(host='127.0.0.1', port=8888): Max retries exceeded with url: /notebooks/Notebooks/notebook.ipynb?token=3b56a766afdef52d8fa1fa30bde9f5e0755d377370514cb6 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fda2d050ed0>: Failed to establish a new connection: [Errno 111] Connection refused')); 12195)
 [2024-07-15T12:07:07.387+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
 [2024-07-15T12:07:07.411+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-18T06:58:59.064+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2024-01-12T00:00:00+00:00 [queued]>
+[2024-07-18T06:58:59.093+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2024-01-12T00:00:00+00:00 [queued]>
+[2024-07-18T06:58:59.096+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2024-07-18T06:58:59.134+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_notebook> on 2024-01-12 00:00:00+00:00
+[2024-07-18T06:58:59.142+0000] {standard_task_runner.py:57} INFO - Started process 19259 to run task
+[2024-07-18T06:58:59.161+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'run_remote_jupyter_notebook', 'run_notebook', 'scheduled__2024-01-12T00:00:00+00:00', '--job-id', '378', '--raw', '--subdir', 'DAGS_FOLDER/run_notebook.py', '--cfg-path', '/tmp/tmpx22iixs5']
+[2024-07-18T06:58:59.174+0000] {standard_task_runner.py:85} INFO - Job 378: Subtask run_notebook
+[2024-07-18T06:58:59.278+0000] {task_command.py:410} INFO - Running <TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2024-01-12T00:00:00+00:00 [running]> on host 6c8b3b9a6388
+[2024-07-18T06:58:59.445+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='run_remote_jupyter_notebook' AIRFLOW_CTX_TASK_ID='run_notebook' AIRFLOW_CTX_EXECUTION_DATE='2024-01-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-12T00:00:00+00:00'
+[2024-07-18T06:59:02.632+0000] {client.py:566} ERROR - Error occurred while starting new kernel client for kernel 06c3d798-8fa5-42ce-9a95-d0d4ea607d76: Kernel died before replying to kernel_info
+[2024-07-18T06:59:02.635+0000] {logging_mixin.py:149} INFO - Error processing notebook: Kernel died before replying to kernel_info
+[2024-07-18T06:59:02.636+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/run_notebook.py", line 27, in execute_remote_notebook
+    ep.preprocess(nb, {'metadata': {'path': '/tmp/'}})
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 94, in preprocess
+    with self.setup_kernel():
+  File "/usr/local/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbclient/client.py", line 599, in setup_kernel
+    self.start_new_kernel_client()
+  File "/home/airflow/.local/lib/python3.7/site-packages/jupyter_core/utils/__init__.py", line 98, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/local/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbclient/client.py", line 562, in async_start_new_kernel_client
+    await ensure_async(self.kc.wait_for_ready(timeout=self.startup_timeout))
+  File "/home/airflow/.local/lib/python3.7/site-packages/jupyter_core/utils/__init__.py", line 110, in ensure_async
+    result = await obj
+  File "/home/airflow/.local/lib/python3.7/site-packages/jupyter_client/client.py", line 202, in _async_wait_for_ready
+    raise RuntimeError("Kernel died before replying to kernel_info")
+RuntimeError: Kernel died before replying to kernel_info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/run_notebook.py", line 51, in execute_remote_notebook
+    raise AirflowException(f"Failed to process Jupyter notebook: {str(e)}")
+NameError: name 'AirflowException' is not defined
+[2024-07-18T06:59:02.656+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=run_remote_jupyter_notebook, task_id=run_notebook, execution_date=20240112T000000, start_date=20240718T065859, end_date=20240718T065902
+[2024-07-18T06:59:02.674+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 378 for task run_notebook (name 'AirflowException' is not defined; 19259)
+[2024-07-18T06:59:02.715+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2024-07-18T06:59:02.737+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

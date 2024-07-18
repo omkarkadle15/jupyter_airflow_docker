@@ -35,3 +35,17 @@ requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 [2024-07-15T10:54:21.250+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 737 for task run_notebook (Expecting value: line 1 column 1 (char 0); 927)
 [2024-07-15T10:54:21.277+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
 [2024-07-15T10:54:21.313+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-18T06:55:33.364+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2023-05-27T00:00:00+00:00 [queued]>
+[2024-07-18T06:55:33.380+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2023-05-27T00:00:00+00:00 [queued]>
+[2024-07-18T06:55:33.381+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2024-07-18T06:55:33.411+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_notebook> on 2023-05-27 00:00:00+00:00
+[2024-07-18T06:55:33.425+0000] {standard_task_runner.py:57} INFO - Started process 7476 to run task
+[2024-07-18T06:55:33.432+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'run_remote_jupyter_notebook', 'run_notebook', 'scheduled__2023-05-27T00:00:00+00:00', '--job-id', '148', '--raw', '--subdir', 'DAGS_FOLDER/run_notebook.py', '--cfg-path', '/tmp/tmpb86_vwei']
+[2024-07-18T06:55:33.436+0000] {standard_task_runner.py:85} INFO - Job 148: Subtask run_notebook
+[2024-07-18T06:55:33.554+0000] {task_command.py:410} INFO - Running <TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2023-05-27T00:00:00+00:00 [running]> on host 6c8b3b9a6388
+[2024-07-18T06:55:33.723+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='run_remote_jupyter_notebook' AIRFLOW_CTX_TASK_ID='run_notebook' AIRFLOW_CTX_EXECUTION_DATE='2023-05-27T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-05-27T00:00:00+00:00'
+[2024-07-18T06:55:36.632+0000] {logging_mixin.py:149} INFO - Notebook executed and updated successfully on the server.
+[2024-07-18T06:55:36.634+0000] {python.py:183} INFO - Done. Returned value was: None
+[2024-07-18T06:55:36.662+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=run_remote_jupyter_notebook, task_id=run_notebook, execution_date=20230527T000000, start_date=20240718T065533, end_date=20240718T065536
+[2024-07-18T06:55:36.742+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2024-07-18T06:55:36.766+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

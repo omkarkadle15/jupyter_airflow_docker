@@ -10,7 +10,7 @@ from nbconvert.preprocessors import ExecutePreprocessor
 def execute_remote_notebook(**kwargs):
     base_url = "http://host.docker.internal:8888"
     notebook_path = "Notebooks/notebook.ipynb"
-    token = "enter_jupyter_token"
+    token = "29c08c89f23000ab666c115c16343dd9321d262ba19ed18a"
     headers = {"Authorization": f"Token {token}"}
 
     try:
@@ -65,6 +65,8 @@ dag = DAG(
     default_args=default_args,
     description='A DAG to run a remote Jupyter notebook',
     schedule_interval=timedelta(days=1),
+    max_active_runs=1,
+    max_active_tasks=1    
 )
 
 run_notebook = PythonOperator(

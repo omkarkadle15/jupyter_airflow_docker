@@ -35,3 +35,50 @@ requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 [2024-07-15T10:38:58.415+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 672 for task run_notebook (Expecting value: line 1 column 1 (char 0); 4403)
 [2024-07-15T10:38:58.465+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
 [2024-07-15T10:38:58.488+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-18T06:54:53.793+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2023-04-11T00:00:00+00:00 [queued]>
+[2024-07-18T06:54:53.834+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2023-04-11T00:00:00+00:00 [queued]>
+[2024-07-18T06:54:53.835+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2024-07-18T06:54:53.862+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_notebook> on 2023-04-11 00:00:00+00:00
+[2024-07-18T06:54:53.875+0000] {standard_task_runner.py:57} INFO - Started process 5108 to run task
+[2024-07-18T06:54:53.885+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'run_remote_jupyter_notebook', 'run_notebook', 'scheduled__2023-04-11T00:00:00+00:00', '--job-id', '102', '--raw', '--subdir', 'DAGS_FOLDER/run_notebook.py', '--cfg-path', '/tmp/tmpg33zx30_']
+[2024-07-18T06:54:53.892+0000] {standard_task_runner.py:85} INFO - Job 102: Subtask run_notebook
+[2024-07-18T06:54:54.018+0000] {task_command.py:410} INFO - Running <TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2023-04-11T00:00:00+00:00 [running]> on host 6c8b3b9a6388
+[2024-07-18T06:54:54.259+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='run_remote_jupyter_notebook' AIRFLOW_CTX_TASK_ID='run_notebook' AIRFLOW_CTX_EXECUTION_DATE='2023-04-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-04-11T00:00:00+00:00'
+[2024-07-18T06:54:57.434+0000] {client.py:566} ERROR - Error occurred while starting new kernel client for kernel cb4f1aba-9a01-46ec-afcb-12f11d056ff8: Kernel died before replying to kernel_info
+[2024-07-18T06:54:57.436+0000] {logging_mixin.py:149} INFO - Error processing notebook: Kernel died before replying to kernel_info
+[2024-07-18T06:54:57.437+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/run_notebook.py", line 27, in execute_remote_notebook
+    ep.preprocess(nb, {'metadata': {'path': '/tmp/'}})
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 94, in preprocess
+    with self.setup_kernel():
+  File "/usr/local/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbclient/client.py", line 599, in setup_kernel
+    self.start_new_kernel_client()
+  File "/home/airflow/.local/lib/python3.7/site-packages/jupyter_core/utils/__init__.py", line 98, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/local/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/home/airflow/.local/lib/python3.7/site-packages/nbclient/client.py", line 562, in async_start_new_kernel_client
+    await ensure_async(self.kc.wait_for_ready(timeout=self.startup_timeout))
+  File "/home/airflow/.local/lib/python3.7/site-packages/jupyter_core/utils/__init__.py", line 110, in ensure_async
+    result = await obj
+  File "/home/airflow/.local/lib/python3.7/site-packages/jupyter_client/client.py", line 202, in _async_wait_for_ready
+    raise RuntimeError("Kernel died before replying to kernel_info")
+RuntimeError: Kernel died before replying to kernel_info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/run_notebook.py", line 51, in execute_remote_notebook
+    raise AirflowException(f"Failed to process Jupyter notebook: {str(e)}")
+NameError: name 'AirflowException' is not defined
+[2024-07-18T06:54:57.459+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=run_remote_jupyter_notebook, task_id=run_notebook, execution_date=20230411T000000, start_date=20240718T065453, end_date=20240718T065457
+[2024-07-18T06:54:57.476+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 102 for task run_notebook (name 'AirflowException' is not defined; 5108)
+[2024-07-18T06:54:57.503+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2024-07-18T06:54:57.525+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -79,3 +79,17 @@ requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8
 [2024-07-15T11:20:30.687+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 905 for task run_notebook (HTTPConnectionPool(host='127.0.0.1', port=8888): Max retries exceeded with url: /notebooks/Notebooks/notebook.ipynb?token=3b56a766afdef52d8fa1fa30bde9f5e0755d377370514cb6 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fda2d050090>: Failed to establish a new connection: [Errno 111] Connection refused')); 2076)
 [2024-07-15T11:20:30.703+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
 [2024-07-15T11:20:30.720+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-18T06:56:50.503+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2023-08-20T00:00:00+00:00 [queued]>
+[2024-07-18T06:56:50.531+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2023-08-20T00:00:00+00:00 [queued]>
+[2024-07-18T06:56:50.533+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 2
+[2024-07-18T06:56:50.577+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): run_notebook> on 2023-08-20 00:00:00+00:00
+[2024-07-18T06:56:50.600+0000] {standard_task_runner.py:57} INFO - Started process 11895 to run task
+[2024-07-18T06:56:50.608+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'run_remote_jupyter_notebook', 'run_notebook', 'scheduled__2023-08-20T00:00:00+00:00', '--job-id', '233', '--raw', '--subdir', 'DAGS_FOLDER/run_notebook.py', '--cfg-path', '/tmp/tmp4gn32fqs']
+[2024-07-18T06:56:50.613+0000] {standard_task_runner.py:85} INFO - Job 233: Subtask run_notebook
+[2024-07-18T06:56:50.736+0000] {task_command.py:410} INFO - Running <TaskInstance: run_remote_jupyter_notebook.run_notebook scheduled__2023-08-20T00:00:00+00:00 [running]> on host 6c8b3b9a6388
+[2024-07-18T06:56:50.906+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='run_remote_jupyter_notebook' AIRFLOW_CTX_TASK_ID='run_notebook' AIRFLOW_CTX_EXECUTION_DATE='2023-08-20T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-08-20T00:00:00+00:00'
+[2024-07-18T06:56:54.258+0000] {logging_mixin.py:149} INFO - Notebook executed and updated successfully on the server.
+[2024-07-18T06:56:54.260+0000] {python.py:183} INFO - Done. Returned value was: None
+[2024-07-18T06:56:54.276+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=run_remote_jupyter_notebook, task_id=run_notebook, execution_date=20230820T000000, start_date=20240718T065650, end_date=20240718T065654
+[2024-07-18T06:56:54.350+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2024-07-18T06:56:54.378+0000] {taskinstance.py:2651} INFO - 0 downstream tasks scheduled from follow-on schedule check
