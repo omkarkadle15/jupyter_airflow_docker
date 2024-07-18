@@ -23,6 +23,7 @@ This project sets up an Apache Airflow environment using Docker, configured to e
 git clone https://github.com/omkarkadle15/jupyter_airflow_docker
 
 cd (project-directory)
+
 Replace "project directory" with the actual directory where you cloned the project.
 
 2. Start your Jupyter Notebook server:
