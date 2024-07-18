@@ -10,7 +10,7 @@ from nbconvert.preprocessors import ExecutePreprocessor
 def execute_remote_notebook(**kwargs):
     base_url = "http://host.docker.internal:8888"
     notebook_path = "Notebooks/notebook.ipynb"
-    token = "29c08c89f23000ab666c115c16343dd9321d262ba19ed18a"
+    token = "enter_jupyter_token"
     headers = {"Authorization": f"Token {token}"}
 
     try:
