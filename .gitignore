@@ -24,6 +24,8 @@ wheels/
 airflow.db
 airflow.cfg
 unittests.cfg
+*.log
+dag_processor_manager.log
 logs/
 airflow-webserver.pid
 
