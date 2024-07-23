@@ -21,11 +21,9 @@ services:
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
-    depends_on:
-      - postgres
 
   webserver:
-    build: .  # Use the custom Dockerfile
+    build: .
     command: webserver
     ports:
       - "8080:8080"
@@ -34,23 +32,31 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./outputs:/opt/airflow/outputs
+      - /Users/shreekadle/Desktop/Airflow/INPUT:/opt/airflow/input
+      - /Users/shreekadle/Desktop/Airflow/OUTPUT:/opt/airflow/output
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
       - AIRFLOW__WEBSERVER__BASE_URL=http://localhost:8080
+      - INPUT_DIR=/opt/airflow/input
+      - OUTPUT_DIR=/opt/airflow/output
     depends_on:
       - airflow-init
 
   scheduler:
-    build: .  # Use the custom Dockerfile
+    build: .
     command: scheduler
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+      - /Users/shreekadle/Desktop/Airflow/INPUT:/opt/airflow/input
+      - /Users/shreekadle/Desktop/Airflow/OUTPUT:/opt/airflow/output
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+      - INPUT_DIR=/opt/airflow/input
+      - OUTPUT_DIR=/opt/airflow/output
     depends_on:
       - airflow-init
 

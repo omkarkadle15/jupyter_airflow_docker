@@ -8,11 +8,14 @@ import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
 from airflow.exceptions import AirflowException
 import logging
+import os
+from airflow.models import Variable
+
+base_url = Variable.get("base_url", "http://host.docker.internal:8888")
+notebook_path = Variable.get("notebook_path", "Notebooks/airflow_test.ipynb")
+token = Variable.get("token")
 
 def execute_remote_notebook(**kwargs):
-    base_url = "http://host.docker.internal:8888"
-    notebook_path = "Notebooks/notebook.ipynb"
-    token = "enter_jupyter_token"
     headers = {"Authorization": f"Token {token}"}
 
     try:
@@ -23,6 +26,12 @@ def execute_remote_notebook(**kwargs):
 
         # Load the notebook
         nb = nbformat.reads(json.dumps(notebook_content['content']), as_version=4)
+
+        # Add environment variables to notebook metadata
+        nb.metadata.papermill = {
+            'INPUT_DIR': os.environ.get('INPUT_DIR', '/opt/airflow/input'),
+            'OUTPUT_DIR': os.environ.get('OUTPUT_DIR', '/opt/airflow/output')
+        }
 
         # Execute the notebook
         ep = ExecutePreprocessor(timeout=600, kernel_name='python3')
@@ -77,7 +86,7 @@ dag = DAG(
     'run_remote_jupyter_notebook',
     default_args=default_args,
     description='A DAG to run a remote Jupyter notebook',
-    schedule_interval=timedelta(days=1),
+    schedule_interval=None,
     max_active_tasks=1,
     max_active_runs=1
 )
@@ -85,7 +94,7 @@ dag = DAG(
 run_notebook = PythonOperator(
     task_id='run_notebook',
     python_callable=execute_remote_notebook,
-    dag=dag,
+    dag=dag
 )
 
 run_notebook
