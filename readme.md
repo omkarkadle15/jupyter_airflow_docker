@@ -115,8 +115,8 @@ To mount a local directory:
 5. You may also need to add environment variables to make these paths accessible to your tasks:
     ```yaml
     environment:
-  - INPUT_DIR=/opt/airflow/input
-  - OUTPUT_DIR=/opt/airflow/output
+    - INPUT_DIR=/opt/airflow/input
+    - OUTPUT_DIR=/opt/airflow/output
   ```
 
 Remember to replace /Users/yourusername/Desktop/Airflow/INPUT and /Users/yourusername/Desktop/Airflow/OUTPUT with the actual paths on your local machine.
