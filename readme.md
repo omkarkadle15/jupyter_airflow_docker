@@ -20,12 +20,16 @@ This project sets up an Apache Airflow environment using Docker, configured to e
 
 1. Clone this repository:
 
+```
 git clone https://github.com/omkarkadle15/jupyter_airflow_docker.git
 cd (the directory where you cloned this project)
+```
 
 2. Start your Jupyter Notebook server:
 
+```
 jupyter notebook --no-browser
+```
 
 Note the token provided in the Jupyter server output.
 
@@ -42,11 +46,15 @@ Note the token provided in the Jupyter server output.
 
 4. Build the Docker images:
 
+```
 docker-compose build
+```
 
 5. Start the airflow services:
 
+```
 docker-compose up
+```
 
 6. Access the Airflow web interface at `http://localhost:8080`
 
@@ -99,8 +107,10 @@ If you encounter issues:
 3. Verify network connectivity to the remote Jupyter server.
 4. If unable to log in, try resetting the database:
 
+```
 docker-compose down -v
 docker-compose up
+```
 
 5. If the DAG fails to execute the notebook, check the Jupyter server token in Airflow variables.
 
