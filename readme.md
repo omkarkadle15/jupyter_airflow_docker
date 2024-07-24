@@ -117,7 +117,6 @@ To mount a local directory:
     environment:
     - INPUT_DIR=/opt/airflow/input
     - OUTPUT_DIR=/opt/airflow/output
-  ```
 
 Remember to replace /Users/yourusername/Desktop/Airflow/INPUT and /Users/yourusername/Desktop/Airflow/OUTPUT with the actual paths on your local machine.
 After making these changes, restart your Docker containers for the changes to take effect:
