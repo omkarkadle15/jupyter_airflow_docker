@@ -91,6 +91,44 @@ This allows you to easily modify the Jupyter Notebook configuration without rede
 - Add additional DAGs in the `dags/` directory.
 - Modify `requirements.txt` to add or remove Python dependencies.
 
+## Accessing Local Files
+
+If you need to access files from your local machine within the Airflow containers, you can mount local directories as volumes in the `docker-compose.yaml` file. This allows Airflow tasks to read from or write to these directories.
+
+To mount a local directory:
+
+1. Open the `docker-compose.yaml` file.
+2. Locate the `volumes` section under the `webserver` and `scheduler` services.
+3. Add a new line to mount your local directory. The format is:
+   ```yaml
+   - /path/on/your/local/machine:/path/in/container
+   ```
+4. For example to mount an input and output directory:
+    ```yaml
+    volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - /Users/yourusername/Desktop/Airflow/INPUT:/opt/airflow/input
+    - /Users/yourusername/Desktop/Airflow/OUTPUT:/opt/airflow/output
+    ```
+5. You may also need to add environment variables to make these paths accessible to your tasks:
+    ```yaml
+    environment:
+  - INPUT_DIR=/opt/airflow/input
+  - OUTPUT_DIR=/opt/airflow/output
+  ```
+
+Remember to replace /Users/yourusername/Desktop/Airflow/INPUT and /Users/yourusername/Desktop/Airflow/OUTPUT with the actual paths on your local machine.
+After making these changes, restart your Docker containers for the changes to take effect:
+
+```
+docker-compose down
+docker-compose up -d
+```
+
+Now your Airflow tasks can access files in these mounted directories using the paths specified in the container (e.g., /opt/airflow/input and /opt/airflow/output).
+
 ## Services
 
 1. **postgres**: PostgreSQL database for Airflow metadata.
