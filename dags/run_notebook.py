@@ -12,7 +12,7 @@ import os
 from airflow.models import Variable
 
 base_url = Variable.get("base_url", "http://host.docker.internal:8888")
-notebook_path = Variable.get("notebook_path", "default-notebook.ipynb") # Make sure to change the default notebook
+notebook_path = Variable.get("notebook_path", "default-notebook.ipynb") # Make sure to change the default
 token = Variable.get("token")
 
 def execute_remote_notebook(**kwargs):

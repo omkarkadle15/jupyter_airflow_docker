@@ -32,14 +32,14 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./outputs:/opt/airflow/outputs
-      - /input-path/on/your/machine:/opt/airflow/input # Make sure to change the path
-      - /output-path/on/your/machine:/opt/airflow/output # Make sure to change the path
+##      - /input-path/on/your/machine:/opt/airflow/input # Make sure to change the path
+##      - /output-path/on/your/machine:/opt/airflow/output # Make sure to change the path
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
       - AIRFLOW__WEBSERVER__BASE_URL=http://localhost:8080
-      - INPUT_DIR=/opt/airflow/input
-      - OUTPUT_DIR=/opt/airflow/output
+##      - INPUT_DIR=/opt/airflow/input
+##      - OUTPUT_DIR=/opt/airflow/output
     depends_on:
       - airflow-init
 
@@ -50,13 +50,13 @@ services:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
-      - /input-path/on/your/machine:/opt/airflow/input # Make sure to change the path
-      - /input-path/on/your/machine:/opt/airflow/output # Make sure to change the path
+##      - /input-path/on/your/machine:/opt/airflow/input # Make sure to change the path
+##      - /input-path/on/your/machine:/opt/airflow/output # Make sure to change the path
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
-      - INPUT_DIR=/opt/airflow/input
-      - OUTPUT_DIR=/opt/airflow/output
+##      - INPUT_DIR=/opt/airflow/input
+##      - OUTPUT_DIR=/opt/airflow/output
     depends_on:
       - airflow-init
 
