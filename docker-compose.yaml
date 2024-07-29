@@ -32,8 +32,8 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./outputs:/opt/airflow/outputs
-      - /Users/your-username/Desktop/Airflow/INPUT:/opt/airflow/input
-      - /Users/your-username/Desktop/Airflow/OUTPUT:/opt/airflow/output
+      - /input-path/on/your/machine:/opt/airflow/input # Make sure to change the path
+      - /output-path/on/your/machine:/opt/airflow/output # Make sure to change the path
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
@@ -50,8 +50,8 @@ services:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
-      - /Users/your-username/Desktop/Airflow/INPUT:/opt/airflow/input
-      - /Users/your-username/Desktop/Airflow/OUTPUT:/opt/airflow/output
+      - /input-path/on/your/machine:/opt/airflow/input # Make sure to change the path
+      - /input-path/on/your/machine:/opt/airflow/output # Make sure to change the path
     environment:
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
